@@ -1,0 +1,7 @@
+First to compile your servlt .java file put the attached file "servlet.jar" in "JAVA_HOME\jre\lib\ext\". Now you should compile .java servlet
+Now install Tomcat ( I am using Tomcat 4.1 on port 8080 ). To check if the tomcat is working open your browser and write the link http://localhost:8080/ , Tomcat should display a html file to now.
+Now to make Tomcat open your html file put it in "CATALINA_HOME\webapps\ROOT\" where CALTALINA_HOME is the path of Tomcat; now you can open your html file by the link http://localhost:8080/filename.html. If you want the Tomcat to open your html automatically name your html file index.html now if open the link http://localhost:8080/ your html file will be opened
+Now to run your servlet, put .class file in "CATALINA_HOME\webapps\examples\WEB-INF\classes\" , to open your servlet use link http://localhost:8080/examples/servlet/classfilename . Note: write your class file name without .class ( i.e. if servlet file name is Servlet1.class the link would be http://localhost:8080/examples/servlet/Servlet1 )
+If any body know how to place my .class file in other folder than the shown and how to open it please tell me
+ 
+the attached servlet version  is 2.2

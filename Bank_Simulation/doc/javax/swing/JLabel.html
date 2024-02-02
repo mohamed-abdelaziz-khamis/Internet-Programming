@@ -1,0 +1,468 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML><!--JBuilder QuickDoc-->
+<HEAD>
+<TITLE>Class javax.swing.JLabel</TITLE><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+</HEAD>
+<BODY>
+
+<H2>
+<FONT SIZE="-1">javax.swing</FONT>
+<BR>Class JLabel</H2>
+<DL>
+<DT>public class <B>JLabel</B><DT>extends JComponent<DT>implements SwingConstants, Accessible
+</DL>
+<DL><DD>A display area for a short text string or an image, or both. A label does not react to input events. As a result, it cannot get the keyboard focus. A label can, however, display a keyboard alternative as a convenience for a nearby component that has a keyboard alternative but can't display it. <p> A <code>JLabel</code> object can display either text, an image, or both. You can specify where in the label's display area the label's contents are aligned by setting the vertical and horizontal alignment. By default, labels are vertically centered in their display area. Text-only labels are leading edge aligned, by default; image-only labels are horizontally centered, by default. <p> You can also specify the position of the text relative to the image. By default, text is on the trailing edge of the image, with the text and image vertically aligned. <p> A label's leading and trailing edge are determined from the value of its <A HREF="java.awt.ComponentOrientation">java.awt.ComponentOrientation</A> property. At present, the default ComponentOrientation setting maps the leading edge to left and the trailing edge to right. <p> Finally, you can use the <code>setIconTextGap</code> method to specify how many pixels should appear between the text and the image. The default is 4 pixels. <p> See <a href="http://java.sun.com/docs/books/tutorial/uiswing/components/label.html">How to Use Labels</a> in <em>The Java Tutorial</em> for further documentation. <p> <strong>Warning:</strong> Serialized objects of this class will not be compatible with future Swing releases. The current serialization support is appropriate for short term storage or RMI between applications running the same version of Swing. As of 1.4, support for long term storage of all JavaBeans<sup><font size="-2">TM</font></sup> has been added to the <code>java.beans</code> package. Please see <A HREF="java.beans.XMLEncoder">java.beans.XMLEncoder</A>.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Version:</B><DD>1.113 01/23/03</DD>
+<DT><B>Author:</B><DD>Hans Muller</DD>
+</DL>
+<TABLE BORDER="1" CELLPADDING="3" CELLSPACING="0" WIDTH="100%">
+<TR BGCOLOR="#CCCCFF"><TD COLSPAN=1><FONT SIZE="+2">
+<B>Field Detail</B>
+</FONT></TD></TR></TABLE>
+
+<H3>uiClassID</H3>
+<PRE>
+private static final String <B>uiClassID</B></PRE>
+<DL><DD><DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>See Also:</B><DD>#getUIClassID</DD>
+<DD>#readObject</DD>
+</DL>
+<HR>
+
+<H3>LABELED_BY_PROPERTY</H3>
+<PRE>
+static final String <B>LABELED_BY_PROPERTY</B></PRE>
+<DL><DD>Client property key used to determine what label is labeling the component. This is generally not used by labels, but is instead used by components such as text areas that are being labeled by labels. When the labelFor property of a label is set, it will automatically set the LABELED_BY_PROPERTY of the component being labelled.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>See Also:</B><DD>#setLabelFor</DD>
+</DL>
+<HR>
+
+<TABLE BORDER="1" CELLPADDING="3" CELLSPACING="0" WIDTH="100%">
+<TR BGCOLOR="#CCCCFF"><TD COLSPAN=1><FONT SIZE="+2">
+<B>Constructor Detail</B>
+</FONT></TD></TR></TABLE>
+
+<H3>JLabel</H3>
+<PRE>
+public <B>JLabel</B>(String&nbsp;text,
+              Icon&nbsp;icon,
+              int&nbsp;horizontalAlignment)</PRE>
+<DL><DD>Creates a <code>JLabel</code> instance with the specified text, image, and horizontal alignment. The label is centered vertically in its display area. The text is on the trailing edge of the image.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>text</CODE> - The text to be displayed by the label.</DD>
+<DD><CODE>icon</CODE> - The image to be displayed by the label.</DD>
+<DD><CODE>horizontalAlignment</CODE> - One of the following constants defined in <code>SwingConstants</code>: <code>LEFT</code>, <code>CENTER</code>, <code>RIGHT</code>, <code>LEADING</code> or <code>TRAILING</code>.</DD>
+</DL>
+<HR>
+
+<H3>JLabel</H3>
+<PRE>
+public <B>JLabel</B>(String&nbsp;text,
+              int&nbsp;horizontalAlignment)</PRE>
+<DL><DD>Creates a <code>JLabel</code> instance with the specified text and horizontal alignment. The label is centered vertically in its display area.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>text</CODE> - The text to be displayed by the label.</DD>
+<DD><CODE>horizontalAlignment</CODE> - One of the following constants defined in <code>SwingConstants</code>: <code>LEFT</code>, <code>CENTER</code>, <code>RIGHT</code>, <code>LEADING</code> or <code>TRAILING</code>.</DD>
+</DL>
+<HR>
+
+<H3>JLabel</H3>
+<PRE>
+public <B>JLabel</B>(String&nbsp;text)</PRE>
+<DL><DD>Creates a <code>JLabel</code> instance with the specified text. The label is aligned against the leading edge of its display area, and centered vertically.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>text</CODE> - The text to be displayed by the label.</DD>
+</DL>
+<HR>
+
+<H3>JLabel</H3>
+<PRE>
+public <B>JLabel</B>(Icon&nbsp;image,
+              int&nbsp;horizontalAlignment)</PRE>
+<DL><DD>Creates a <code>JLabel</code> instance with the specified image and horizontal alignment. The label is centered vertically in its display area.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>image</CODE> - The image to be displayed by the label.</DD>
+<DD><CODE>horizontalAlignment</CODE> - One of the following constants defined in <code>SwingConstants</code>: <code>LEFT</code>, <code>CENTER</code>, <code>RIGHT</code>, <code>LEADING</code> or <code>TRAILING</code>.</DD>
+</DL>
+<HR>
+
+<H3>JLabel</H3>
+<PRE>
+public <B>JLabel</B>(Icon&nbsp;image)</PRE>
+<DL><DD>Creates a <code>JLabel</code> instance with the specified image. The label is centered vertically and horizontally in its display area.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>image</CODE> - The image to be displayed by the label.</DD>
+</DL>
+<HR>
+
+<H3>JLabel</H3>
+<PRE>
+public <B>JLabel</B>()</PRE>
+<DL><DD>Creates a <code>JLabel</code> instance with no image and with an empty string for the title. The label is centered vertically in its display area. The label's contents, once set, will be displayed on the leading edge of the label's display area.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<TABLE BORDER="1" CELLPADDING="3" CELLSPACING="0" WIDTH="100%">
+<TR BGCOLOR="#CCCCFF"><TD COLSPAN=1><FONT SIZE="+2">
+<B>Method Detail</B>
+</FONT></TD></TR></TABLE>
+
+<H3>getUI</H3>
+<PRE>
+public LabelUI <B>getUI</B>()</PRE>
+<DL><DD>Returns the L&F object that renders this component.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Returns:</B><DD>LabelUI object</DD>
+</DL>
+<HR>
+
+<H3>setUI</H3>
+<PRE>
+public void <B>setUI</B>(LabelUI&nbsp;ui)</PRE>
+<DL><DD>Sets the L&F object that renders this component.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>ui</CODE> - the LabelUI L&F object</DD>
+<DT><B>See Also:</B><DD>UIDefaults#getUI</DD>
+</DL>
+<HR>
+
+<H3>updateUI</H3>
+<PRE>
+public void <B>updateUI</B>()</PRE>
+<DL><DD>Resets the UI property to a value from the current look and feel.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>See Also:</B><DD>JComponent#updateUI</DD>
+</DL>
+<HR>
+
+<H3>getUIClassID</H3>
+<PRE>
+public String <B>getUIClassID</B>()</PRE>
+<DL><DD>Returns a string that specifies the name of the l&f class that renders this component.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Returns:</B><DD>String "LabelUI"</DD>
+<DT><B>See Also:</B><DD>JComponent#getUIClassID</DD>
+<DD>UIDefaults#getUI</DD>
+</DL>
+<HR>
+
+<H3>getText</H3>
+<PRE>
+public String <B>getText</B>()</PRE>
+<DL><DD>Returns the text string that the label displays.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Returns:</B><DD>a String</DD>
+<DT><B>See Also:</B><DD>#setText</DD>
+</DL>
+<HR>
+
+<H3>setText</H3>
+<PRE>
+public void <B>setText</B>(String&nbsp;text)</PRE>
+<DL><DD>Defines the single line of text this component will display. If the value of text is null or empty string, nothing is displayed. <p> The default value of this property is null. <p> This is a JavaBeans bound property.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>See Also:</B><DD>#setVerticalTextPosition</DD>
+<DD>#setHorizontalTextPosition</DD>
+<DD>#setIcon</DD>
+</DL>
+<HR>
+
+<H3>getIcon</H3>
+<PRE>
+public Icon <B>getIcon</B>()</PRE>
+<DL><DD>Returns the graphic image (glyph, icon) that the label displays.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Returns:</B><DD>an Icon</DD>
+<DT><B>See Also:</B><DD>#setIcon</DD>
+</DL>
+<HR>
+
+<H3>setIcon</H3>
+<PRE>
+public void <B>setIcon</B>(Icon&nbsp;icon)</PRE>
+<DL><DD>Defines the icon this component will display. If the value of icon is null, nothing is displayed. <p> The default value of this property is null. <p> This is a JavaBeans bound property.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>See Also:</B><DD>#setVerticalTextPosition</DD>
+<DD>#setHorizontalTextPosition</DD>
+<DD>#getIcon</DD>
+</DL>
+<HR>
+
+<H3>getDisabledIcon</H3>
+<PRE>
+public Icon <B>getDisabledIcon</B>()</PRE>
+<DL><DD>Returns the value of the disabledIcon property if it's been set, If it hasn't been set and the value of the icon property is an ImageIcon, we compute a "grayed out" version of the icon and update the disabledIcon property with that.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Returns:</B><DD>The value of the disabledIcon property.</DD>
+<DT><B>See Also:</B><DD>#setDisabledIcon</DD>
+<DD>ImageIcon</DD>
+</DL>
+<HR>
+
+<H3>setDisabledIcon</H3>
+<PRE>
+public void <B>setDisabledIcon</B>(Icon&nbsp;disabledIcon)</PRE>
+<DL><DD>Set the icon to be displayed if this JLabel is "disabled" (JLabel.setEnabled(false)). <p> The default value of this property is null.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>disabledIcon</CODE> - the Icon to display when the component is disabled</DD>
+<DT><B>See Also:</B><DD>#getDisabledIcon</DD>
+<DD>#setEnabled</DD>
+</DL>
+<HR>
+
+<H3>setDisplayedMnemonic</H3>
+<PRE>
+public void <B>setDisplayedMnemonic</B>(int&nbsp;key)</PRE>
+<DL><DD>Specify a keycode that indicates a mnemonic key. This property is used when the label is part of a larger component. If the labelFor property of the label is not null, the label will call the requestFocus method of the component specified by the labelFor property when the mnemonic is activated.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>See Also:</B><DD>#getLabelFor</DD>
+<DD>#setLabelFor</DD>
+</DL>
+<HR>
+
+<H3>setDisplayedMnemonic</H3>
+<PRE>
+public void <B>setDisplayedMnemonic</B>(char&nbsp;aChar)</PRE>
+<DL><DD>Specifies the displayedMnemonic as a char value.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>aChar</CODE> - a char specifying the mnemonic to display</DD>
+<DT><B>See Also:</B><DD>#setDisplayedMnemonic(int)</DD>
+</DL>
+<HR>
+
+<H3>getDisplayedMnemonic</H3>
+<PRE>
+public int <B>getDisplayedMnemonic</B>()</PRE>
+<DL><DD>Return the keycode that indicates a mnemonic key. This property is used when the label is part of a larger component. If the labelFor property of the label is not null, the label will call the requestFocus method of the component specified by the labelFor property when the mnemonic is activated.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Returns:</B><DD>int value for the mnemonic key</DD>
+<DT><B>See Also:</B><DD>#getLabelFor</DD>
+<DD>#setLabelFor</DD>
+</DL>
+<HR>
+
+<H3>setDisplayedMnemonicIndex</H3>
+<PRE>
+public void <B>setDisplayedMnemonicIndex</B>(int&nbsp;index)</PRE>
+<DL><DD>Provides a hint to the look and feel as to which character in the text should be decorated to represent the mnemonic. Not all look and feels may support this. A value of -1 indicates either there is no mnemonic, the mnemonic character is not contained in the string, or the developer does not wish the mnemonic to be displayed. <p> The value of this is updated as the properties relating to the mnemonic change (such as the mnemonic itself, the text...). You should only ever have to call this if you do not wish the default character to be underlined. For example, if the text was 'Save As', with a mnemonic of 'a', and you wanted the 'A' to be decorated, as 'Save <u>A</u>s', you would have to invoke <code>setDisplayedMnemonicIndex(5)</code> after invoking <code>setMnemonic(KeyEvent.VK_A)</code>.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>index</CODE> - Index into the String to underline</DD>
+<DT><B>Throws:</B><DD><CODE>IllegalArgumentException</CODE> - will be thrown if <code>index</code is >= length of the text, or < -</DD>
+<DT><B>Since:</B><DD>1.4</DD>
+</DL>
+<HR>
+
+<H3>getDisplayedMnemonicIndex</H3>
+<PRE>
+public int <B>getDisplayedMnemonicIndex</B>()</PRE>
+<DL><DD>Returns the character, as an index, that the look and feel should provide decoration for as representing the mnemonic character.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Returns:</B><DD>index representing mnemonic character</DD>
+<DT><B>Since:</B><DD>1.4</DD>
+<DT><B>See Also:</B><DD>#setDisplayedMnemonicIndex</DD>
+</DL>
+<HR>
+
+<H3>checkHorizontalKey</H3>
+<PRE>
+protected int <B>checkHorizontalKey</B>(int&nbsp;key,
+                                 String&nbsp;message)</PRE>
+<DL><DD>Verify that key is a legal value for the horizontalAlignment properties.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>key</CODE> - the property value to check</DD>
+<DD><CODE>message</CODE> - the IllegalArgumentException detail message</DD>
+<DT><B>Throws:</B><DD><CODE>IllegalArgumentException</CODE> - if key isn't LEFT, CENTER, RIGHT, LEADING or TRAILING.</DD>
+<DT><B>See Also:</B><DD>#setHorizontalTextPosition</DD>
+<DD>#setHorizontalAlignment</DD>
+</DL>
+<HR>
+
+<H3>checkVerticalKey</H3>
+<PRE>
+protected int <B>checkVerticalKey</B>(int&nbsp;key,
+                               String&nbsp;message)</PRE>
+<DL><DD>Verify that key is a legal value for the verticalAlignment or verticalTextPosition properties.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>key</CODE> - the property value to check</DD>
+<DD><CODE>message</CODE> - the IllegalArgumentException detail message</DD>
+<DT><B>Throws:</B><DD><CODE>IllegalArgumentException</CODE> - if key isn't TOP, CENTER, or BOTTOM.</DD>
+<DT><B>See Also:</B><DD>#setVerticalAlignment</DD>
+<DD>#setVerticalTextPosition</DD>
+</DL>
+<HR>
+
+<H3>getIconTextGap</H3>
+<PRE>
+public int <B>getIconTextGap</B>()</PRE>
+<DL><DD>Returns the amount of space between the text and the icon displayed in this label.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Returns:</B><DD>an int equal to the number of pixels between the text and the icon.</DD>
+<DT><B>See Also:</B><DD>#setIconTextGap</DD>
+</DL>
+<HR>
+
+<H3>setIconTextGap</H3>
+<PRE>
+public void <B>setIconTextGap</B>(int&nbsp;iconTextGap)</PRE>
+<DL><DD>If both the icon and text properties are set, this property defines the space between them. <p> The default value of this property is 4 pixels. <p> This is a JavaBeans bound property.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>See Also:</B><DD>#getIconTextGap</DD>
+</DL>
+<HR>
+
+<H3>getVerticalAlignment</H3>
+<PRE>
+public int <B>getVerticalAlignment</B>()</PRE>
+<DL><DD>Returns the alignment of the label's contents along the Y axis.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Returns:</B><DD>The value of the verticalAlignment property, one of the following constants defined in <code>SwingConstants</code>: <code>TOP</code>, <code>CENTER</code>, or <code>BOTTOM</code>.</DD>
+<DT><B>See Also:</B><DD>SwingConstants</DD>
+<DD>#setVerticalAlignment</DD>
+</DL>
+<HR>
+
+<H3>setVerticalAlignment</H3>
+<PRE>
+public void <B>setVerticalAlignment</B>(int&nbsp;alignment)</PRE>
+<DL><DD>Sets the alignment of the label's contents along the Y axis. <p> The default value of this property is CENTER.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>alignment</CODE> - One of the following constants defined in <code>SwingConstants</code>: <code>TOP</code>, <code>CENTER</code> (the default), or <code>BOTTOM</code>.</DD>
+<DT><B>See Also:</B><DD>SwingConstants</DD>
+<DD>#getVerticalAlignment</DD>
+</DL>
+<HR>
+
+<H3>getHorizontalAlignment</H3>
+<PRE>
+public int <B>getHorizontalAlignment</B>()</PRE>
+<DL><DD>Returns the alignment of the label's contents along the X axis.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Returns:</B><DD>The value of the horizontalAlignment property, one of the following constants defined in <code>SwingConstants</code>: <code>LEFT</code>, <code>CENTER</code>, <code>RIGHT</code>, <code>LEADING</code> or <code>TRAILING</code>.</DD>
+<DT><B>See Also:</B><DD>#setHorizontalAlignment</DD>
+<DD>SwingConstants</DD>
+</DL>
+<HR>
+
+<H3>setHorizontalAlignment</H3>
+<PRE>
+public void <B>setHorizontalAlignment</B>(int&nbsp;alignment)</PRE>
+<DL><DD>Sets the alignment of the label's contents along the X axis. <p> This is a JavaBeans bound property.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>alignment</CODE> - One of the following constants defined in <code>SwingConstants</code>: <code>LEFT</code>, <code>CENTER</code> (the default for image-only labels), <code>RIGHT</code>, <code>LEADING</code> (the default for text-only labels) or <code>TRAILING</code>.</DD>
+<DT><B>See Also:</B><DD>SwingConstants</DD>
+<DD>#getHorizontalAlignment</DD>
+</DL>
+<HR>
+
+<H3>getVerticalTextPosition</H3>
+<PRE>
+public int <B>getVerticalTextPosition</B>()</PRE>
+<DL><DD>Returns the vertical position of the label's text, relative to its image.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Returns:</B><DD>One of the following constants defined in <code>SwingConstants</code>: <code>TOP</code>, <code>CENTER</code>, or <code>BOTTOM</code>.</DD>
+<DT><B>See Also:</B><DD>#setVerticalTextPosition</DD>
+<DD>SwingConstants</DD>
+</DL>
+<HR>
+
+<H3>setVerticalTextPosition</H3>
+<PRE>
+public void <B>setVerticalTextPosition</B>(int&nbsp;textPosition)</PRE>
+<DL><DD>Sets the vertical position of the label's text, relative to its image. <p> The default value of this property is CENTER. <p> This is a JavaBeans bound property.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>textPosition</CODE> - One of the following constants defined in <code>SwingConstants</code>: <code>TOP</code>, <code>CENTER</code> (the default), or <code>BOTTOM</code>.</DD>
+<DT><B>See Also:</B><DD>SwingConstants</DD>
+<DD>#getVerticalTextPosition</DD>
+</DL>
+<HR>
+
+<H3>getHorizontalTextPosition</H3>
+<PRE>
+public int <B>getHorizontalTextPosition</B>()</PRE>
+<DL><DD>Returns the horizontal position of the label's text, relative to its image.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Returns:</B><DD>One of the following constants defined in <code>SwingConstants</code>: <code>LEFT</code>, <code>CENTER</code>, <code>RIGHT</code>, <code>LEADING</code> or <code>TRAILING</code>.</DD>
+<DT><B>See Also:</B><DD>SwingConstants</DD>
+</DL>
+<HR>
+
+<H3>setHorizontalTextPosition</H3>
+<PRE>
+public void <B>setHorizontalTextPosition</B>(int&nbsp;textPosition)</PRE>
+<DL><DD>Sets the horizontal position of the label's text, relative to its image.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>textPosition</CODE> - One of the following constants defined in <code>SwingConstants</code>: <code>LEFT</code>, <code>CENTER</code>, <code>RIGHT</code>, <code>LEADING</code>, or <code>TRAILING</code> (the default).</DD>
+<DT><B>Throws:</B><DD><CODE>IllegalArgumentException</CODE> - </DD>
+<DT><B>See Also:</B><DD>SwingConstants</DD>
+</DL>
+<HR>
+
+<H3>imageUpdate</H3>
+<PRE>
+public boolean <B>imageUpdate</B>(Image&nbsp;img,
+                           int&nbsp;infoflags,
+                           int&nbsp;x,
+                           int&nbsp;y,
+                           int&nbsp;w,
+                           int&nbsp;h)</PRE>
+<DL><DD>This is overridden to return false if the current Icon's Image is not equal to the passed in Image <code>img</code>.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>See Also:</B><DD>java.awt.image.ImageObserver</DD>
+<DD>java.awt.Component#imageUpdate(java.awt.Image, int, int, int, int, int)</DD>
+</DL>
+<HR>
+
+<H3>writeObject</H3>
+<PRE>
+private void <B>writeObject</B>(ObjectOutputStream&nbsp;s)</PRE>
+<DL><DD>See readObject() and writeObject() in JComponent for more information about serialization in Swing.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>paramString</H3>
+<PRE>
+protected String <B>paramString</B>()</PRE>
+<DL><DD>Returns a string representation of this JLabel. This method is intended to be used only for debugging purposes, and the content and format of the returned string may vary between implementations. The returned string may be empty but may not be <code>null</code>.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Returns:</B><DD>a string representation of this JLabel.</DD>
+</DL>
+<HR>
+
+<H3>getLabelFor</H3>
+<PRE>
+public Component <B>getLabelFor</B>()</PRE>
+<DL><DD>Get the component this is labelling.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Returns:</B><DD>the Component this is labelling. Can be null if this does not label a Component. If the displayedMnemonic property is set and the labelFor property is also set, the label will call the requestFocus method of the component specified by the labelFor property when the mnemonic is activated.</DD>
+<DT><B>See Also:</B><DD>#getDisplayedMnemonic</DD>
+<DD>#setDisplayedMnemonic</DD>
+</DL>
+<HR>
+
+<H3>setLabelFor</H3>
+<PRE>
+public void <B>setLabelFor</B>(Component&nbsp;c)</PRE>
+<DL><DD>Set the component this is labelling. Can be null if this does not label a Component. If the displayedMnemonic property is set and the labelFor property is also set, the label will call the requestFocus method of the component specified by the labelFor property when the mnemonic is activated.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>c</CODE> - the Component this label is for, or null if the label is not the label for a component</DD>
+<DT><B>See Also:</B><DD>#getDisplayedMnemonic</DD>
+<DD>#setDisplayedMnemonic</DD>
+</DL>
+<HR>
+
+<H3>getAccessibleContext</H3>
+<PRE>
+public AccessibleContext <B>getAccessibleContext</B>()</PRE>
+<DL><DD>Get the AccessibleContext of this object<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Returns:</B><DD>the AccessibleContext of this object</DD>
+</DL>
+<HR>
+
+</BODY>
+</HTML>

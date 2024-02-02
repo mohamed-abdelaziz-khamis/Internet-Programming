@@ -1,0 +1,6 @@
+The main file(Web module file)
+	WEB-INF(contain every thing about the servlet)
+		web.xml(define the servlet proberities and mapping)
+		Class(contain the compiled servlet)
+		lib(contain the required lib. for servlet)
+	index.html(the page that sends requests to the servlet)

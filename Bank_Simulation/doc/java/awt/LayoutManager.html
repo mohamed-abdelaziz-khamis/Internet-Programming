@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML><!--JBuilder QuickDoc-->
+<HEAD>
+<TITLE>Class java.awt.LayoutManager</TITLE><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+</HEAD>
+<BODY>
+
+<H2>
+<FONT SIZE="-1">java.awt</FONT>
+<BR>Interface LayoutManager</H2>
+<DL>
+<DT>public interface <B>LayoutManager</B>
+</DL>
+<DL><DD>Defines the interface for classes that know how to lay out <code>Container</code>s.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Version:</B><DD>1.24, 01/23/03</DD>
+<DT><B>Author:</B><DD>Sami Shaio</DD>
+<DD>Arthur van Hoff</DD>
+<DT><B>See Also:</B><DD>Container</DD>
+</DL>
+<TABLE BORDER="1" CELLPADDING="3" CELLSPACING="0" WIDTH="100%">
+<TR BGCOLOR="#CCCCFF"><TD COLSPAN=1><FONT SIZE="+2">
+<B>Method Detail</B>
+</FONT></TD></TR></TABLE>
+
+<H3>addLayoutComponent</H3>
+<PRE>
+void <B>addLayoutComponent</B>(String&nbsp;name,
+                        Component&nbsp;comp)</PRE>
+<DL><DD>If the layout manager uses a per-component string, adds the component <code>comp</code> to the layout, associating it with the string specified by <code>name</code>.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>name</CODE> - the string to be associated with the component</DD>
+<DD><CODE>comp</CODE> - the component to be added</DD>
+</DL>
+<HR>
+
+<H3>removeLayoutComponent</H3>
+<PRE>
+void <B>removeLayoutComponent</B>(Component&nbsp;comp)</PRE>
+<DL><DD>Removes the specified component from the layout.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>comp</CODE> - the component to be removed</DD>
+</DL>
+<HR>
+
+<H3>preferredLayoutSize</H3>
+<PRE>
+Dimension <B>preferredLayoutSize</B>(Container&nbsp;parent)</PRE>
+<DL><DD>Calculates the preferred size dimensions for the specified container, given the components it contains.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>parent</CODE> - the container to be laid out</DD>
+<DT><B>See Also:</B><DD>#minimumLayoutSize</DD>
+</DL>
+<HR>
+
+<H3>minimumLayoutSize</H3>
+<PRE>
+Dimension <B>minimumLayoutSize</B>(Container&nbsp;parent)</PRE>
+<DL><DD>Calculates the minimum size dimensions for the specified container, given the components it contains.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>parent</CODE> - the component to be laid out</DD>
+<DT><B>See Also:</B><DD>#preferredLayoutSize</DD>
+</DL>
+<HR>
+
+<H3>layoutContainer</H3>
+<PRE>
+void <B>layoutContainer</B>(Container&nbsp;parent)</PRE>
+<DL><DD>Lays out the specified container.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>parent</CODE> - the container to be laid out</DD>
+</DL>
+<HR>
+
+</BODY>
+</HTML>

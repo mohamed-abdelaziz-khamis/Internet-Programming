@@ -1,0 +1,12 @@
+   IP Lecture Sildes:
+   ch 3 Applets              : 4 slides/page
+   ch 8  O-Based           : 2 slides/page
+   ch 9  Inheritance        : 4 slides/page
+   ch 10 Polymorphism : 4 slides/page
+   ch 12 Graphics          : 4 slides/page
+   ch 13 GUI part1        : 4 slides/page
+   ch 15 Exceptions      : 4 slides/page
+   ch 16 Multithreading : 2 slides/page 
+   Ch 23 JDBC: 15 pages * 4 slides/page
+   Ch 24 Servlets: 14 pages * 4 slides/page
+   Ch 25 JSP: 19 pages * 4 slides/page  

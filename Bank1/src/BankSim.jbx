@@ -1,0 +1,25 @@
+[PropertyInfo]
+AddClientBtn,javax.swing.JButton,false,false, , ,false,<default>
+app1,boolean,false,false, , ,false,<default>
+Approach1Btn,javax.swing.JButton,false,false, , ,false,<default>
+Approach2Btn,javax.swing.JButton,false,false, , ,false,<default>
+Cont,java.awt.Container,false,false, , ,false,<default>
+EndBtn,javax.swing.JButton,false,false, , ,false,<default>
+img,javax.swing.ImageIcon,false,false, , ,false,<default>
+j,int,false,false, , ,false,<default>
+labels,java.util.ArrayList,false,false, , ,false,<default>
+panel,javax.swing.JPanel,false,false, , ,false,<default>
+testApporach1,TestApproach1,false,false, , ,false,<default>
+testApporach2,TestApproach2,false,false, , ,false,<default>
+Users,User[],false,false, , ,false,<default>
+USERS_COUNT,int,false,false, , ,false,<default>
+win,javax.swing.ImageIcon,false,false, , ,false,<default>
+Window1,javax.swing.JLabel,false,false, , ,false,<default>
+Window2,javax.swing.JLabel,false,false, , ,false,<default>
+Window3,javax.swing.JLabel,false,false, , ,false,<default>
+Window4,javax.swing.JLabel,false,false, , ,false,<default>
+[IconNames]
+
+
+
+

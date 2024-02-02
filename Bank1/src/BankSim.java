@@ -1,0 +1,221 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.util.ArrayList;
+
+public class BankSim extends JFrame
+{
+  public static int USERS_COUNT=20;
+  public static final int DELTA=5;
+  public boolean app1=true;
+  private TestApproach1 testApporach1;
+  private TestApproach2 testApporach2;
+  private User Users[];
+  private JButton Approach1Btn;
+  private JButton Approach2Btn;
+  private JButton AddClientBtn;
+  private JButton EndBtn;
+  private Container Cont;
+  private JPanel panel;
+  private ImageIcon img;
+  private ImageIcon win;
+  public static ArrayList labels;
+  public JLabel Window1;
+  public JLabel Window2;
+  public JLabel Window3;
+  public JLabel Window4;
+  // private JLabel label2;
+  int j=0;
+  public BankSim()
+  {
+    super("Bank Simulation");
+    Cont = getContentPane();
+    labels=new ArrayList();
+    img = new ImageIcon("c:\\man.gif");
+
+    win= new ImageIcon("c:\\window.gif");
+
+    Window1=new JLabel(win);
+    Window1.setLocation(TestApproach1.X-DELTA,TestApproach1.Y-DELTA);
+    Window1.setSize(TestApproach1.LWIDTH+2*DELTA,TestApproach1.LHIGTH+2*DELTA);
+    Cont.add(Window1);
+    Window1.show(true);
+
+    Window2 = new JLabel(win);
+    Window2.setLocation(TestApproach1.X - DELTA,
+                        TestApproach1.Y+TestApproach1.STEPY+TestApproach1.LHIGTH- DELTA);
+    Window2.setSize(TestApproach1.LWIDTH + 2 * DELTA,
+                    TestApproach1.LHIGTH + 2 * DELTA);
+    Cont.add(Window2);
+    Window2.show(true);
+
+    Window3 = new JLabel(win);
+    Window3.setLocation(TestApproach1.X - DELTA,
+                        TestApproach1.Y+(TestApproach1.STEPY+TestApproach1.LHIGTH)*2- DELTA);
+    Window3.setSize(TestApproach1.LWIDTH + 2 * DELTA,
+                    TestApproach1.LHIGTH + 2 * DELTA);
+    Cont.add(Window3);
+    Window3.show(true);
+
+    Window4 = new JLabel(win);
+    Window4.setLocation(10- DELTA,
+                        TestApproach1.Y+(TestApproach1.STEPY+TestApproach1.LHIGTH)*4- DELTA);
+    Window4.setSize(TestApproach1.LWIDTH + 2 * DELTA,
+                    TestApproach1.LHIGTH + 2 * DELTA);
+    Cont.add(Window4);
+    Window4.show(true);
+
+
+    Users = new User[USERS_COUNT];
+    for (int i = 0; i < USERS_COUNT; i++)
+    {
+      Users[i]=new User(i,(long)(Math.random()*5001+2000));
+      labels.add( new JLabel(""+i,img,JLabel.CENTER));
+      ((JLabel)labels.get(i)).setSize(TestApproach1.LWIDTH,TestApproach1.LHIGTH);
+      Cont.add(((JLabel)labels.get(i)));
+      ((JLabel)labels.get(i)).show(false);
+    }
+
+    //GUI
+
+    // Cont.setLayout(new GridLayout(1,4));
+    Approach2Btn = new JButton("Run approach2");
+    Approach1Btn = new JButton("Run approach1");
+
+    Approach1Btn.setSize(175, 50);
+    Approach1Btn.setLocation(10, 10);
+    Approach1Btn.addActionListener(
+        new ActionListener() {
+      public void actionPerformed(ActionEvent event) {
+        app1=true;
+        Approach1Btn.setEnabled(false);
+        Approach2Btn.setEnabled(false);
+        AddClientBtn.setEnabled(true);
+         EndBtn.setEnabled(true);
+        testApporach1 = new TestApproach1(Users);
+      }
+    }
+    );
+    Cont.add(Approach1Btn);
+    Approach1Btn.show(true);
+
+    Approach2Btn = new JButton("Run approach2");
+    Approach2Btn.setSize(175, 50);
+    Approach2Btn.setLocation(300, 10);
+    Approach2Btn.addActionListener(
+        new ActionListener() {
+      public void actionPerformed(ActionEvent event) {
+        app1=false;
+        Approach1Btn.setEnabled(false);
+        Approach2Btn.setEnabled(false);
+        AddClientBtn.setEnabled(true);
+        EndBtn.setEnabled(true);
+        testApporach2 = new TestApproach2(Users);
+      }
+    }
+    );
+    Cont.add(Approach2Btn);
+    Approach2Btn.show(true);
+
+    AddClientBtn = new JButton("Add client");
+    AddClientBtn.setEnabled(false);
+
+    AddClientBtn.setSize(175, 50);
+    AddClientBtn.setLocation(600, 10);
+    AddClientBtn.addActionListener(
+        new ActionListener() {
+      public void actionPerformed(ActionEvent event) {
+        User user=new User();
+        user.id=USERS_COUNT++;
+        user.time=Long.parseLong(JOptionPane.showInputDialog
+                                 ("Insert client's service time in seconds"))*1000;
+        labels.add( new JLabel(""+user.id,img,JLabel.CENTER));
+        ((JLabel)labels.get(user.id)).setSize(TestApproach1.LWIDTH,TestApproach1.LHIGTH);
+        Cont.add(((JLabel)labels.get(user.id)));
+        ((JLabel)labels.get(user.id)).show(false);
+
+        if(app1)
+          testApporach1.addUser(user);
+        else
+          testApporach2.addUser(user);
+      }
+    }
+    );
+    Cont.add(AddClientBtn);
+    AddClientBtn.show(true);
+
+    EndBtn = new JButton("Terminate");
+
+   EndBtn.setEnabled(false);
+
+   EndBtn.setSize(175, 50);
+   EndBtn.setLocation(800, 10);
+   EndBtn.addActionListener(
+       new ActionListener() {
+     public void actionPerformed(ActionEvent event) {
+      USERS_COUNT=17;
+      Approach1Btn.setEnabled(true);
+      Approach2Btn.setEnabled(true);
+      AddClientBtn.setEnabled(false);
+      EndBtn.setEnabled(false);
+       if(app1)
+         testApporach1.Terminate();
+       else
+         testApporach2.Terminate();
+     }
+   }
+   );
+   Cont.add(EndBtn);
+   EndBtn.show(true);
+
+
+
+    /*label.setLocation(200, 200);
+    Cont.add(label);
+    label.show(true);
+
+    label2 = new JLabel(img);
+    label2.setSize(35, 40);
+    label2.setLocation(400, 200);
+    Cont.add(label2);
+    label2.show(true);*/
+
+
+   panel = new JPanel();
+    panel.setLocation(500, 300);
+    panel.setBackground(new Color(0, 200, 255));
+    Cont.add(panel);
+    panel.setVisible(false);
+
+    setSize(1000, 500);
+    setVisible(true);
+    try {
+      jbInit();
+    }
+    catch (Exception ex) {
+      ex.printStackTrace();
+    }
+  }
+
+  public void paint(Graphics g)
+
+ {
+   super.paint(g);
+ /*  g.setColor(new Color(255,0,0));
+   g.drawRect(TestApproach1.X-DELTA,TestApproach1.Y+TestApproach1.STEPY*3-DELTA,
+                TestApproach1.LWIDTH+2*DELTA,TestApproach1.LHIGTH+2*DELTA);*/
+//   img.paintIcon(this,g,100,200);
+
+ }
+   //end GUI
+
+  public static void main(String[] args)
+  {
+    BankSim bankSim = new BankSim();
+    bankSim.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+  }
+
+  private void jbInit() throws Exception {
+  }
+
+}

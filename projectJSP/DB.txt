@@ -1,0 +1,11 @@
+create table surveyresults(
+aid number not null,
+votes number,
+surveyoption varchar2(30),
+primary key (aid));
+
+insert into surveyresults values(1,0,'dog');
+insert into surveyresults values(2,0,'cat');
+insert into surveyresults values(3,0,'bird');
+insert into surveyresults values(4,0,'snake');
+insert into surveyresults values(5,0,'none');

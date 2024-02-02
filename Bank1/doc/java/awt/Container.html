@@ -1,0 +1,1100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML><!--JBuilder QuickDoc-->
+<HEAD>
+<TITLE>Class java.awt.Container</TITLE><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+</HEAD>
+<BODY>
+
+<H2>
+<FONT SIZE="-1">java.awt</FONT>
+<BR>Class Container</H2>
+<DL>
+<DT>public class <B>Container</B><DT>extends Component
+</DL>
+<DL><DD>A generic Abstract Window Toolkit(AWT) container object is a component that can contain other AWT components. <p> Components added to a container are tracked in a list. The order of the list will define the components' front-to-back stacking order within the container. If no index is specified when adding a component to a container, it will be added to the end of the list (and hence to the bottom of the stacking order).<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Version:</B><DD>1.239, 02/26/03</DD>
+<DT><B>Author:</B><DD>Arthur van Hoff</DD>
+<DD>Sami Shaio</DD>
+<DT><B>Since:</B><DD>JDK1.0</DD>
+<DT><B>See Also:</B><DD>#add(java.awt.Component, int)</DD>
+<DD>#getComponent(int)</DD>
+<DD>LayoutManager</DD>
+</DL>
+<TABLE BORDER="1" CELLPADDING="3" CELLSPACING="0" WIDTH="100%">
+<TR BGCOLOR="#CCCCFF"><TD COLSPAN=1><FONT SIZE="+2">
+<B>Field Detail</B>
+</FONT></TD></TR></TABLE>
+
+<H3>ncomponents</H3>
+<PRE>
+int <B>ncomponents</B></PRE>
+<DL><DD>The number of components in this container. This value can be null.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>See Also:</B><DD>#getComponent</DD>
+<DD>#getComponents</DD>
+<DD>#getComponentCount</DD>
+</DL>
+<HR>
+
+<H3>component</H3>
+<PRE>
+Component[] <B>component</B></PRE>
+<DL><DD>The components in this container.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>See Also:</B><DD>#add</DD>
+<DD>#getComponents</DD>
+</DL>
+<HR>
+
+<H3>layoutMgr</H3>
+<PRE>
+LayoutManager <B>layoutMgr</B></PRE>
+<DL><DD>Layout manager for this container.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>See Also:</B><DD>#doLayout</DD>
+<DD>#setLayout</DD>
+<DD>#getLayout</DD>
+</DL>
+<HR>
+
+<H3>dispatcher</H3>
+<PRE>
+private LightweightDispatcher <B>dispatcher</B></PRE>
+<DL><DD>Event router for lightweight components. If this container is native, this dispatcher takes care of forwarding and retargeting the events to lightweight components contained (if any).<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>focusTraversalPolicy</H3>
+<PRE>
+private transient FocusTraversalPolicy <B>focusTraversalPolicy</B></PRE>
+<DL><DD>The focus traversal policy that will manage keyboard traversal of this Container's children, if this Container is a focus cycle root. If the value is null, this Container inherits its policy from its focus-cycle- root ancestor. If all such ancestors of this Container have null policies, then the current KeyboardFocusManager's default policy is used. If the value is non-null, this policy will be inherited by all focus-cycle-root children that have no keyboard-traversal policy of their own (as will, recursively, their focus-cycle-root children). <p> If this Container is not a focus cycle root, the value will be remembered, but will not be used or inherited by this or any other Containers until this Container is made a focus cycle root.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Since:</B><DD>1.4</DD>
+<DT><B>See Also:</B><DD>#setFocusTraversalPolicy</DD>
+<DD>#getFocusTraversalPolicy</DD>
+</DL>
+<HR>
+
+<H3>focusCycleRoot</H3>
+<PRE>
+private boolean <B>focusCycleRoot</B></PRE>
+<DL><DD>Indicates whether this Component is the root of a focus traversal cycle. Once focus enters a traversal cycle, typically it cannot leave it via focus traversal unless one of the up- or down-cycle keys is pressed. Normal traversal is limited to this Container, and all of this Container's descendants that are not descendants of inferior focus cycle roots.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Since:</B><DD>1.4</DD>
+<DT><B>See Also:</B><DD>#setFocusCycleRoot</DD>
+<DD>#isFocusCycleRoot</DD>
+</DL>
+<HR>
+
+<H3>serialVersionUID</H3>
+<PRE>
+private static final long <B>serialVersionUID</B></PRE>
+<DL><DD>JDK 1.1 serialVersionUID<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>INCLUDE_SELF</H3>
+<PRE>
+static final boolean <B>INCLUDE_SELF</B></PRE>
+<DL><DD>A constant which toggles one of the controllable behaviors of <code>getMouseEventTarget</code>. It is used to specify whether the method can return the Container on which it is originally called in case if none of its children are the current mouse event targets.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>See Also:</B><DD>#getMouseEventTarget(int, int, boolean, boolean, boolean)</DD>
+</DL>
+<HR>
+
+<H3>SEARCH_HEAVYWEIGHTS</H3>
+<PRE>
+static final boolean <B>SEARCH_HEAVYWEIGHTS</B></PRE>
+<DL><DD>A constant which toggles one of the controllable behaviors of <code>getMouseEventTarget</code>. It is used to specify whether the method should search only lightweight components.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>See Also:</B><DD>#getMouseEventTarget(int, int, boolean, boolean, boolean)</DD>
+</DL>
+<HR>
+
+<H3>containerSerializedDataVersion</H3>
+<PRE>
+private int <B>containerSerializedDataVersion</B></PRE>
+<DL><DD>Container Serial Data Version.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<TABLE BORDER="1" CELLPADDING="3" CELLSPACING="0" WIDTH="100%">
+<TR BGCOLOR="#CCCCFF"><TD COLSPAN=1><FONT SIZE="+2">
+<B>Constructor Detail</B>
+</FONT></TD></TR></TABLE>
+
+<H3>Container</H3>
+<PRE>
+public <B>Container</B>()</PRE>
+<DL><DD>Constructs a new Container. Containers can be extended directly, but are lightweight in this case and must be contained by a parent somewhere higher up in the component tree that is native. (such as Frame for example).<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<TABLE BORDER="1" CELLPADDING="3" CELLSPACING="0" WIDTH="100%">
+<TR BGCOLOR="#CCCCFF"><TD COLSPAN=1><FONT SIZE="+2">
+<B>Method Detail</B>
+</FONT></TD></TR></TABLE>
+
+<H3>initIDs</H3>
+<PRE>
+private static native void <B>initIDs</B>()</PRE>
+<DL><DD>Initialize JNI field and method IDs for fields that may be called from C.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>getComponentCount</H3>
+<PRE>
+public int <B>getComponentCount</B>()</PRE>
+<DL><DD>Gets the number of components in this panel.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Returns:</B><DD>the number of components in this panel.</DD>
+<DT><B>Since:</B><DD>JDK1.1</DD>
+<DT><B>See Also:</B><DD>#getComponent</DD>
+</DL>
+<HR>
+
+<H3>countComponents</H3>
+<PRE>
+public int <B>countComponents</B>()</PRE>
+<DL><DD><B>Deprecated.</B>&nbsp;<I> As of JDK version 1.1, replaced by getComponentCount().</I></DD>
+<DD><DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>getComponent</H3>
+<PRE>
+public Component <B>getComponent</B>(int&nbsp;n)</PRE>
+<DL><DD>Gets the nth component in this container.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>n</CODE> - the index of the component to get.</DD>
+<DT><B>Returns:</B><DD>the n<sup>th</sup> component in this container.</DD>
+<DT><B>Throws:</B><DD><CODE>ArrayIndexOutOfBoundsException</CODE> - if the n<sup>th</sup> value does not exist.</DD>
+</DL>
+<HR>
+
+<H3>getComponents</H3>
+<PRE>
+public Component[] <B>getComponents</B>()</PRE>
+<DL><DD>Gets all the components in this container.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Returns:</B><DD>an array of all the components in this container.</DD>
+</DL>
+<HR>
+
+<H3>getInsets</H3>
+<PRE>
+public Insets <B>getInsets</B>()</PRE>
+<DL><DD>Determines the insets of this container, which indicate the size of the container's border. <p> A <code>Frame</code> object, for example, has a top inset that corresponds to the height of the frame's title bar.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Returns:</B><DD>the insets of this container.</DD>
+<DT><B>Since:</B><DD>JDK1.1</DD>
+<DT><B>See Also:</B><DD>Insets</DD>
+<DD>LayoutManager</DD>
+</DL>
+<HR>
+
+<H3>insets</H3>
+<PRE>
+public Insets <B>insets</B>()</PRE>
+<DL><DD><B>Deprecated.</B>&nbsp;<I> As of JDK version 1.1, replaced by <code>getInsets()</code>.</I></DD>
+<DD><DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>add</H3>
+<PRE>
+public Component <B>add</B>(Component&nbsp;comp)</PRE>
+<DL><DD>Appends the specified component to the end of this container. This is a convenience method for <A HREF="#addImpl">#addImpl</A>. <p> Note: If a component has been added to a container that has been displayed, <code>validate</code> must be called on that container to display the new component. If multiple components are being added, you can improve efficiency by calling <code>validate</code> only once, after all the components have been added.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>comp</CODE> - the component to be added</DD>
+<DT><B>Returns:</B><DD>the component argument</DD>
+<DT><B>See Also:</B><DD>#addImpl</DD>
+<DD>#validate</DD>
+<DD>javax.swing.JComponent#revalidate()</DD>
+</DL>
+<HR>
+
+<H3>add</H3>
+<PRE>
+public Component <B>add</B>(String&nbsp;name,
+                     Component&nbsp;comp)</PRE>
+<DL><DD>Adds the specified component to this container. This is a convenience method for <A HREF="#addImpl">#addImpl</A>. <p> This method is obsolete as of 1.1. Please use the method <code>add(Component, Object)</code> instead.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>See Also:</B><DD>#add(Component, Object)</DD>
+</DL>
+<HR>
+
+<H3>add</H3>
+<PRE>
+public Component <B>add</B>(Component&nbsp;comp,
+                     int&nbsp;index)</PRE>
+<DL><DD>Adds the specified component to this container at the given position. This is a convenience method for <A HREF="#addImpl">#addImpl</A>. <p> Note: If a component has been added to a container that has been displayed, <code>validate</code> must be called on that container to display the new component. If multiple components are being added, you can improve efficiency by calling <code>validate</code> only once, after all the components have been added.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>comp</CODE> - the component to be added</DD>
+<DD><CODE>index</CODE> - the position at which to insert the component, or <code>-1</code> to append the component to the end</DD>
+<DT><B>Returns:</B><DD>the component <code>comp</code></DD>
+<DT><B>See Also:</B><DD>#addImpl</DD>
+<DD>#remove</DD>
+<DD>#validate</DD>
+<DD>javax.swing.JComponent#revalidate()</DD>
+</DL>
+<HR>
+
+<H3>add</H3>
+<PRE>
+public void <B>add</B>(Component&nbsp;comp,
+                Object&nbsp;constraints)</PRE>
+<DL><DD>Adds the specified component to the end of this container. Also notifies the layout manager to add the component to this container's layout using the specified constraints object. This is a convenience method for <A HREF="#addImpl">#addImpl</A>. <p> Note: If a component has been added to a container that has been displayed, <code>validate</code> must be called on that container to display the new component. If multiple components are being added, you can improve efficiency by calling <code>validate</code> only once, after all the components have been added.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>comp</CODE> - the component to be added</DD>
+<DD><CODE>constraints</CODE> - an object expressing layout contraints for this component</DD>
+<DT><B>Since:</B><DD>JDK1.1</DD>
+<DT><B>See Also:</B><DD>#addImpl</DD>
+<DD>#validate</DD>
+<DD>javax.swing.JComponent#revalidate()</DD>
+<DD>LayoutManager</DD>
+</DL>
+<HR>
+
+<H3>add</H3>
+<PRE>
+public void <B>add</B>(Component&nbsp;comp,
+                Object&nbsp;constraints,
+                int&nbsp;index)</PRE>
+<DL><DD>Adds the specified component to this container with the specified constraints at the specified index. Also notifies the layout manager to add the component to the this container's layout using the specified constraints object. This is a convenience method for <A HREF="#addImpl">#addImpl</A>. <p> Note: If a component has been added to a container that has been displayed, <code>validate</code> must be called on that container to display the new component. If multiple components are being added, you can improve efficiency by calling <code>validate</code> only once, after all the components have been added.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>comp</CODE> - the component to be added</DD>
+<DD><CODE>constraints</CODE> - an object expressing layout contraints for this</DD>
+<DD><CODE>index</CODE> - the position in the container's list at which to insert the component; <code>-1</code> means insert at the end component</DD>
+<DT><B>See Also:</B><DD>#addImpl</DD>
+<DD>#validate</DD>
+<DD>javax.swing.JComponent#revalidate()</DD>
+<DD>#remove</DD>
+<DD>LayoutManager</DD>
+</DL>
+<HR>
+
+<H3>addImpl</H3>
+<PRE>
+protected void <B>addImpl</B>(Component&nbsp;comp,
+                       Object&nbsp;constraints,
+                       int&nbsp;index)</PRE>
+<DL><DD>Adds the specified component to this container at the specified index. This method also notifies the layout manager to add the component to this container's layout using the specified constraints object via the <code>addLayoutComponent</code> method. The constraints are defined by the particular layout manager being used. For example, the <code>BorderLayout</code> class defines five constraints: <code>BorderLayout.NORTH</code>, <code>BorderLayout.SOUTH</code>, <code>BorderLayout.EAST</code>, <code>BorderLayout.WEST</code>, and <code>BorderLayout.CENTER</code>. <p>Note that if the component already exists in this container or a child of this container, it is removed from that container before being added to this container. <p> This is the method to override if a program needs to track every add request to a container as all other add methods defer to this one. An overriding method should usually include a call to the superclass's version of the method: <p> <blockquote> <code>super.addImpl(comp, constraints, index)</code> </blockquote> <p><DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>comp</CODE> - the component to be added</DD>
+<DD><CODE>constraints</CODE> - an object expressing layout constraints for this component</DD>
+<DD><CODE>index</CODE> - the position in the container's list at which to insert the component, where <code>-1</code> means append to the end</DD>
+<DT><B>Throws:</B><DD><CODE>IllegalArgumentException</CODE> - if <code>index</code> is invalid</DD>
+<DD><CODE>IllegalArgumentException</CODE> - if adding the container's parent to itself</DD>
+<DD><CODE>IllegalArgumentException</CODE> - if adding a window to a container</DD>
+<DT><B>Since:</B><DD>JDK1.1</DD>
+<DT><B>See Also:</B><DD>#add(Component)</DD>
+<DD>#add(Component, int)</DD>
+<DD>#add(Component, java.lang.Object)</DD>
+<DD>LayoutManager</DD>
+<DD>LayoutManager2</DD>
+</DL>
+<HR>
+
+<H3>checkGD</H3>
+<PRE>
+void <B>checkGD</B>(String&nbsp;stringID)</PRE>
+<DL><DD>Checks that all Components that this Container contains are on the same GraphicsDevice as this Container. If not, throws an IllegalArgumentException.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>remove</H3>
+<PRE>
+public void <B>remove</B>(int&nbsp;index)</PRE>
+<DL><DD>Removes the component, specified by <code>index</code>, from this container.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>index</CODE> - the index of the component to be removed.</DD>
+<DT><B>Since:</B><DD>JDK1.1</DD>
+<DT><B>See Also:</B><DD>#add</DD>
+</DL>
+<HR>
+
+<H3>remove</H3>
+<PRE>
+public void <B>remove</B>(Component&nbsp;comp)</PRE>
+<DL><DD>Removes the specified component from this container.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>comp</CODE> - the component to be removed</DD>
+<DT><B>See Also:</B><DD>#add</DD>
+</DL>
+<HR>
+
+<H3>removeAll</H3>
+<PRE>
+public void <B>removeAll</B>()</PRE>
+<DL><DD>Removes all the components from this container.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>See Also:</B><DD>#add</DD>
+<DD>#remove</DD>
+</DL>
+<HR>
+
+<H3>getLayout</H3>
+<PRE>
+public LayoutManager <B>getLayout</B>()</PRE>
+<DL><DD>Gets the layout manager for this container.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>See Also:</B><DD>#doLayout</DD>
+<DD>#setLayout</DD>
+</DL>
+<HR>
+
+<H3>setLayout</H3>
+<PRE>
+public void <B>setLayout</B>(LayoutManager&nbsp;mgr)</PRE>
+<DL><DD>Sets the layout manager for this container.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>mgr</CODE> - the specified layout manager</DD>
+<DT><B>See Also:</B><DD>#doLayout</DD>
+<DD>#getLayout</DD>
+</DL>
+<HR>
+
+<H3>doLayout</H3>
+<PRE>
+public void <B>doLayout</B>()</PRE>
+<DL><DD>Causes this container to lay out its components. Most programs should not call this method directly, but should invoke the <code>validate</code> method instead.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Since:</B><DD>JDK1.1</DD>
+<DT><B>See Also:</B><DD>LayoutManager#layoutContainer</DD>
+<DD>#setLayout</DD>
+<DD>#validate</DD>
+</DL>
+<HR>
+
+<H3>layout</H3>
+<PRE>
+public void <B>layout</B>()</PRE>
+<DL><DD><B>Deprecated.</B>&nbsp;<I> As of JDK version 1.1, replaced by <code>doLayout()</code>.</I></DD>
+<DD><DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>invalidate</H3>
+<PRE>
+public void <B>invalidate</B>()</PRE>
+<DL><DD>Invalidates the container. The container and all parents above it are marked as needing to be laid out. This method can be called often, so it needs to execute quickly.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>See Also:</B><DD>#validate</DD>
+<DD>#layout</DD>
+<DD>LayoutManager</DD>
+</DL>
+<HR>
+
+<H3>validate</H3>
+<PRE>
+public void <B>validate</B>()</PRE>
+<DL><DD>Validates this container and all of its subcomponents. <p> The <code>validate</code> method is used to cause a container to lay out its subcomponents again. It should be invoked when this container's subcomponents are modified (added to or removed from the container, or layout-related information changed) after the container has been displayed.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>See Also:</B><DD>#add(java.awt.Component)</DD>
+<DD>Component#invalidate</DD>
+<DD>javax.swing.JComponent#revalidate()</DD>
+</DL>
+<HR>
+
+<H3>validateTree</H3>
+<PRE>
+protected void <B>validateTree</B>()</PRE>
+<DL><DD>Recursively descends the container tree and recomputes the layout for any subtrees marked as needing it (those marked as invalid). Synchronization should be provided by the method that calls this one: <code>validate</code>.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>invalidateTree</H3>
+<PRE>
+void <B>invalidateTree</B>()</PRE>
+<DL><DD>Recursively descends the container tree and invalidates all contained components.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>setFont</H3>
+<PRE>
+public void <B>setFont</B>(Font&nbsp;f)</PRE>
+<DL><DD>Sets the font of this container.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>f</CODE> - The font to become this container's font.</DD>
+<DT><B>Since:</B><DD>JDK1.0</DD>
+<DT><B>See Also:</B><DD>Component#getFont</DD>
+</DL>
+<HR>
+
+<H3>getPreferredSize</H3>
+<PRE>
+public Dimension <B>getPreferredSize</B>()</PRE>
+<DL><DD>Returns the preferred size of this container.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Returns:</B><DD>an instance of <code>Dimension</code> that represents the preferred size of this container.</DD>
+<DT><B>See Also:</B><DD>#getMinimumSize</DD>
+<DD>#getLayout</DD>
+<DD>LayoutManager#preferredLayoutSize(Container)</DD>
+<DD>Component#getPreferredSize</DD>
+</DL>
+<HR>
+
+<H3>preferredSize</H3>
+<PRE>
+public Dimension <B>preferredSize</B>()</PRE>
+<DL><DD><B>Deprecated.</B>&nbsp;<I> As of JDK version 1.1, replaced by <code>getPreferredSize()</code>.</I></DD>
+<DD><DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>getMinimumSize</H3>
+<PRE>
+public Dimension <B>getMinimumSize</B>()</PRE>
+<DL><DD>Returns the minimum size of this container.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Returns:</B><DD>an instance of <code>Dimension</code> that represents the minimum size of this container.</DD>
+<DT><B>Since:</B><DD>JDK1.1</DD>
+<DT><B>See Also:</B><DD>#getPreferredSize</DD>
+<DD>#getLayout</DD>
+<DD>LayoutManager#minimumLayoutSize(Container)</DD>
+<DD>Component#getMinimumSize</DD>
+</DL>
+<HR>
+
+<H3>minimumSize</H3>
+<PRE>
+public Dimension <B>minimumSize</B>()</PRE>
+<DL><DD><B>Deprecated.</B>&nbsp;<I> As of JDK version 1.1, replaced by <code>getMinimumSize()</code>.</I></DD>
+<DD><DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>getMaximumSize</H3>
+<PRE>
+public Dimension <B>getMaximumSize</B>()</PRE>
+<DL><DD>Returns the maximum size of this container.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>See Also:</B><DD>#getPreferredSize</DD>
+</DL>
+<HR>
+
+<H3>getAlignmentX</H3>
+<PRE>
+public float <B>getAlignmentX</B>()</PRE>
+<DL><DD>Returns the alignment along the x axis. This specifies how the component would like to be aligned relative to other components. The value should be a number between 0 and 1 where 0 represents alignment along the origin, 1 is aligned the furthest away from the origin, 0.5 is centered, etc.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>getAlignmentY</H3>
+<PRE>
+public float <B>getAlignmentY</B>()</PRE>
+<DL><DD>Returns the alignment along the y axis. This specifies how the component would like to be aligned relative to other components. The value should be a number between 0 and 1 where 0 represents alignment along the origin, 1 is aligned the furthest away from the origin, 0.5 is centered, etc.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>paint</H3>
+<PRE>
+public void <B>paint</B>(Graphics&nbsp;g)</PRE>
+<DL><DD>Paints the container. This forwards the paint to any lightweight components that are children of this container. If this method is reimplemented, super.paint(g) should be called so that lightweight components are properly rendered. If a child component is entirely clipped by the current clipping setting in g, paint() will not be forwarded to that child.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>g</CODE> - the specified Graphics window</DD>
+<DT><B>See Also:</B><DD>Component#update(Graphics)</DD>
+</DL>
+<HR>
+
+<H3>update</H3>
+<PRE>
+public void <B>update</B>(Graphics&nbsp;g)</PRE>
+<DL><DD>Updates the container. This forwards the update to any lightweight components that are children of this container. If this method is reimplemented, super.update(g) should be called so that lightweight components are properly rendered. If a child component is entirely clipped by the current clipping setting in g, update() will not be forwarded to that child.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>g</CODE> - the specified Graphics window</DD>
+<DT><B>See Also:</B><DD>Component#update(Graphics)</DD>
+</DL>
+<HR>
+
+<H3>print</H3>
+<PRE>
+public void <B>print</B>(Graphics&nbsp;g)</PRE>
+<DL><DD>Prints the container. This forwards the print to any lightweight components that are children of this container. If this method is reimplemented, super.print(g) should be called so that lightweight components are properly rendered. If a child component is entirely clipped by the current clipping setting in g, print() will not be forwarded to that child.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>g</CODE> - the specified Graphics window</DD>
+<DT><B>See Also:</B><DD>Component#update(Graphics)</DD>
+</DL>
+<HR>
+
+<H3>paintComponents</H3>
+<PRE>
+public void <B>paintComponents</B>(Graphics&nbsp;g)</PRE>
+<DL><DD>Paints each of the components in this container.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>g</CODE> - the graphics context.</DD>
+<DT><B>See Also:</B><DD>Component#paint</DD>
+<DD>Component#paintAll</DD>
+</DL>
+<HR>
+
+<H3>lightweightPaint</H3>
+<PRE>
+void <B>lightweightPaint</B>(Graphics&nbsp;g)</PRE>
+<DL><DD>Simulates the peer callbacks into java.awt for printing of lightweight Containers.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>g</CODE> - the graphics context to use for printing.</DD>
+<DT><B>See Also:</B><DD>Component#printAll</DD>
+<DD>#printComponents</DD>
+</DL>
+<HR>
+
+<H3>paintHeavyweightComponents</H3>
+<PRE>
+void <B>paintHeavyweightComponents</B>(Graphics&nbsp;g)</PRE>
+<DL><DD>Prints all the heavyweight subcomponents.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>printComponents</H3>
+<PRE>
+public void <B>printComponents</B>(Graphics&nbsp;g)</PRE>
+<DL><DD>Prints each of the components in this container.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>g</CODE> - the graphics context.</DD>
+<DT><B>See Also:</B><DD>Component#print</DD>
+<DD>Component#printAll</DD>
+</DL>
+<HR>
+
+<H3>lightweightPrint</H3>
+<PRE>
+void <B>lightweightPrint</B>(Graphics&nbsp;g)</PRE>
+<DL><DD>Simulates the peer callbacks into java.awt for printing of lightweight Containers.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>g</CODE> - the graphics context to use for printing.</DD>
+<DT><B>See Also:</B><DD>Component#printAll</DD>
+<DD>#printComponents</DD>
+</DL>
+<HR>
+
+<H3>printHeavyweightComponents</H3>
+<PRE>
+void <B>printHeavyweightComponents</B>(Graphics&nbsp;g)</PRE>
+<DL><DD>Prints all the heavyweight subcomponents.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>addContainerListener</H3>
+<PRE>
+public synchronized void <B>addContainerListener</B>(ContainerListener&nbsp;l)</PRE>
+<DL><DD>Adds the specified container listener to receive container events from this container. If l is null, no exception is thrown and no action is performed.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>l</CODE> - the container listener</DD>
+<DT><B>See Also:</B><DD>#removeContainerListener</DD>
+<DD>#getContainerListeners</DD>
+</DL>
+<HR>
+
+<H3>removeContainerListener</H3>
+<PRE>
+public synchronized void <B>removeContainerListener</B>(ContainerListener&nbsp;l)</PRE>
+<DL><DD>Removes the specified container listener so it no longer receives container events from this container. If l is null, no exception is thrown and no action is performed.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>l</CODE> - the container listener</DD>
+<DT><B>See Also:</B><DD>#addContainerListener</DD>
+<DD>#getContainerListeners</DD>
+</DL>
+<HR>
+
+<H3>getContainerListeners</H3>
+<PRE>
+public synchronized ContainerListener[] <B>getContainerListeners</B>()</PRE>
+<DL><DD>Returns an array of all the container listeners registered on this container.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Returns:</B><DD>all of this container's <code>ContainerListener</code>s or an empty array if no container listeners are currently registered</DD>
+<DT><B>Since:</B><DD>1.4</DD>
+<DT><B>See Also:</B><DD>#addContainerListener</DD>
+<DD>#removeContainerListener</DD>
+</DL>
+<HR>
+
+<H3>getListeners</H3>
+<PRE>
+public EventListener[] <B>getListeners</B>(Class&nbsp;listenerType)</PRE>
+<DL><DD>Returns an array of all the objects currently registered as <code><em>Foo</em>Listener</code>s upon this <code>Container</code>. <code><em>Foo</em>Listener</code>s are registered using the <code>add<em>Foo</em>Listener</code> method. <p> You can specify the <code>listenerType</code> argument with a class literal, such as <code><em>Foo</em>Listener.class</code>. For example, you can query a <code>Container</code> <code>c</code> for its container listeners with the following code: <pre>ContainerListener[] cls = (ContainerListener[])(c.getListeners(ContainerListener.class));</pre> If no such listeners exist, this method returns an empty array.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>listenerType</CODE> - the type of listeners requested; this parameter should specify an interface that descends from <code>java.util.EventListener</code></DD>
+<DT><B>Returns:</B><DD>an array of all objects registered as <code><em>Foo</em>Listener</code>s on this container, or an empty array if no such listeners have been added</DD>
+<DT><B>Throws:</B><DD><CODE>ClassCastException</CODE> - if <code>listenerType</code> doesn't specify a class or interface that implements <code>java.util.EventListener</code></DD>
+<DT><B>Since:</B><DD>1.3</DD>
+<DT><B>See Also:</B><DD>#getContainerListeners</DD>
+</DL>
+<HR>
+
+<H3>processEvent</H3>
+<PRE>
+protected void <B>processEvent</B>(AWTEvent&nbsp;e)</PRE>
+<DL><DD>Processes events on this container. If the event is a <code>ContainerEvent</code>, it invokes the <code>processContainerEvent</code> method, else it invokes its superclass's <code>processEvent</code>. <p>Note that if the event parameter is <code>null</code> the behavior is unspecified and may result in an exception.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>e</CODE> - the event</DD>
+</DL>
+<HR>
+
+<H3>processContainerEvent</H3>
+<PRE>
+protected void <B>processContainerEvent</B>(ContainerEvent&nbsp;e)</PRE>
+<DL><DD>Processes container events occurring on this container by dispatching them to any registered ContainerListener objects. NOTE: This method will not be called unless container events are enabled for this component; this happens when one of the following occurs: <ul> <li>A ContainerListener object is registered via <code>addContainerListener</code> <li>Container events are enabled via <code>enableEvents</code> </ul> <p>Note that if the event parameter is <code>null</code> the behavior is unspecified and may result in an exception.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>e</CODE> - the container event</DD>
+<DT><B>See Also:</B><DD>Component#enableEvents</DD>
+</DL>
+<HR>
+
+<H3>getMouseEventTarget</H3>
+<PRE>
+Component <B>getMouseEventTarget</B>(int&nbsp;x,
+                              int&nbsp;y,
+                              boolean&nbsp;includeSelf)</PRE>
+<DL><DD>Fetchs the top-most (deepest) lightweight component that is interested in receiving mouse events.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>getDropTargetEventTarget</H3>
+<PRE>
+Component <B>getDropTargetEventTarget</B>(int&nbsp;x,
+                                   int&nbsp;y,
+                                   boolean&nbsp;includeSelf)</PRE>
+<DL><DD>Fetches the top-most (deepest) component to receive SunDropTargetEvents.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>getMouseEventTarget</H3>
+<PRE>
+private Component <B>getMouseEventTarget</B>(int&nbsp;x,
+                                      int&nbsp;y,
+                                      boolean&nbsp;includeSelf,
+                                      EventTargetFilter&nbsp;filter,
+                                      boolean&nbsp;searchHeavyweights)</PRE>
+<DL><DD>A private version of getMouseEventTarget which has two additional controllable behaviors. This method searches for the top-most descendant of this container that contains the given coordinates and is accepted by the given filter. The search will be constrained to lightweight descendants if the last argument is <code>false</code>.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>filter</CODE> - EventTargetFilter instance to determine whether the given component is a valid target for this event.</DD>
+<DD><CODE>searchHeavyweights</CODE> - if <code>false</false>, the method will bypass heavyweight components during the search.</DD>
+</DL>
+<HR>
+
+<H3>getMouseEventTargetImpl</H3>
+<PRE>
+private Component <B>getMouseEventTargetImpl</B>(int&nbsp;x,
+                                          int&nbsp;y,
+                                          boolean&nbsp;includeSelf,
+                                          EventTargetFilter&nbsp;filter,
+                                          boolean&nbsp;searchHeavyweightChildren,
+                                          boolean&nbsp;searchHeavyweightDescendants)</PRE>
+<DL><DD>A private version of getMouseEventTarget which has three additional controllable behaviors. This method searches for the top-most descendant of this container that contains the given coordinates and is accepted by the given filter. The search will be constrained to descendants of only lightweight children or only heavyweight children of this container depending on searchHeavyweightChildren. The search will be constrained to only lightweight descendants of the searched children of this container if searchHeavyweightDescendants is <code>false</code>.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>filter</CODE> - EventTargetFilter instance to determine whether the selected component is a valid target for this event.</DD>
+<DD><CODE>searchHeavyweightChildren</CODE> - if <code>true</false>, the method will bypass immediate lightweight children during the search. If <code>false</code>, the methods will bypass immediate heavyweight children during the search.</DD>
+<DD><CODE>searchHeavyweightDescendants</CODE> - if <code>false</false>, the method will bypass heavyweight descendants which are not immediate children during the search. If <code>true</code>, the method will traverse both lightweight and heavyweight descendants during the search.</DD>
+</DL>
+<HR>
+
+<H3>proxyEnableEvents</H3>
+<PRE>
+void <B>proxyEnableEvents</B>(long&nbsp;events)</PRE>
+<DL><DD>This is called by lightweight components that want the containing windowed parent to enable some kind of events on their behalf. This is needed for events that are normally only dispatched to windows to be accepted so that they can be forwarded downward to the lightweight component that has enabled them.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>deliverEvent</H3>
+<PRE>
+public void <B>deliverEvent</B>(Event&nbsp;e)</PRE>
+<DL><DD><B>Deprecated.</B>&nbsp;<I> As of JDK version 1.1, replaced by <code>dispatchEvent(AWTEvent e)</code></I></DD>
+<DD><DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>getComponentAt</H3>
+<PRE>
+public Component <B>getComponentAt</B>(int&nbsp;x,
+                                int&nbsp;y)</PRE>
+<DL><DD>Locates the component that contains the x,y position. The top-most child component is returned in the case where there is overlap in the components. This is determined by finding the component closest to the index 0 that claims to contain the given point via Component.contains(), except that Components which have native peers take precedence over those which do not (i.e., lightweight Components).<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>x</CODE> - the <i>x</i> coordinate</DD>
+<DD><CODE>y</CODE> - the <i>y</i> coordinate</DD>
+<DT><B>Returns:</B><DD>null if the component does not contain the position. If there is no child component at the requested point and the point is within the bounds of the container the container itself is returned; otherwise the top-most child is returned.</DD>
+<DT><B>Since:</B><DD>JDK1.1</DD>
+<DT><B>See Also:</B><DD>Component#contains</DD>
+</DL>
+<HR>
+
+<H3>locate</H3>
+<PRE>
+public Component <B>locate</B>(int&nbsp;x,
+                        int&nbsp;y)</PRE>
+<DL><DD><B>Deprecated.</B>&nbsp;<I> As of JDK version 1.1, replaced by <code>getComponentAt(int, int)</code>.</I></DD>
+<DD><DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>getComponentAt</H3>
+<PRE>
+public Component <B>getComponentAt</B>(Point&nbsp;p)</PRE>
+<DL><DD>Gets the component that contains the specified point.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>p</CODE> - the point.</DD>
+<DT><B>Returns:</B><DD>returns the component that contains the point, or <code>null</code> if the component does not contain the point.</DD>
+<DT><B>Since:</B><DD>JDK1.1</DD>
+<DT><B>See Also:</B><DD>Component#contains</DD>
+</DL>
+<HR>
+
+<H3>findComponentAt</H3>
+<PRE>
+public Component <B>findComponentAt</B>(int&nbsp;x,
+                                 int&nbsp;y)</PRE>
+<DL><DD>Locates the visible child component that contains the specified position. The top-most child component is returned in the case where there is overlap in the components. If the containing child component is a Container, this method will continue searching for the deepest nested child component. Components which are not visible are ignored during the search.<p> The findComponentAt method is different from getComponentAt in that getComponentAt only searches the Container's immediate children; if the containing component is a Container, findComponentAt will search that child to find a nested component.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>x</CODE> - the <i>x</i> coordinate</DD>
+<DD><CODE>y</CODE> - the <i>y</i> coordinate</DD>
+<DT><B>Returns:</B><DD>null if the component does not contain the position. If there is no child component at the requested point and the point is within the bounds of the container the container itself is returned.</DD>
+<DT><B>Since:</B><DD>1.2</DD>
+<DT><B>See Also:</B><DD>Component#contains</DD>
+<DD>#getComponentAt</DD>
+</DL>
+<HR>
+
+<H3>findComponentAt</H3>
+<PRE>
+final Component <B>findComponentAt</B>(int&nbsp;x,
+                                int&nbsp;y,
+                                boolean&nbsp;ignoreEnabled)</PRE>
+<DL><DD>Private version of findComponentAt which has a controllable behavior. Setting 'ignoreEnabled' to 'false' bypasses disabled Components during the search. This behavior is used by the lightweight cursor support in sun.awt.GlobalCursorManager. The cursor code calls this function directly via native code. The addition of this feature is temporary, pending the adoption of new, public API which exports this feature.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>findComponentAt</H3>
+<PRE>
+public Component <B>findComponentAt</B>(Point&nbsp;p)</PRE>
+<DL><DD>Locates the visible child component that contains the specified point. The top-most child component is returned in the case where there is overlap in the components. If the containing child component is a Container, this method will continue searching for the deepest nested child component. Components which are not visible are ignored during the search.<p> The findComponentAt method is different from getComponentAt in that getComponentAt only searches the Container's immediate children; if the containing component is a Container, findComponentAt will search that child to find a nested component.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>p</CODE> - the point.</DD>
+<DT><B>Returns:</B><DD>null if the component does not contain the position. If there is no child component at the requested point and the point is within the bounds of the container the container itself is returned.</DD>
+<DT><B>Since:</B><DD>1.2</DD>
+<DT><B>See Also:</B><DD>Component#contains</DD>
+<DD>#getComponentAt</DD>
+</DL>
+<HR>
+
+<H3>addNotify</H3>
+<PRE>
+public void <B>addNotify</B>()</PRE>
+<DL><DD>Makes this Container displayable by connecting it to a native screen resource. Making a container displayable will cause all of its children to be made displayable. This method is called internally by the toolkit and should not be called directly by programs.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>See Also:</B><DD>Component#isDisplayable</DD>
+<DD>#removeNotify</DD>
+</DL>
+<HR>
+
+<H3>removeNotify</H3>
+<PRE>
+public void <B>removeNotify</B>()</PRE>
+<DL><DD>Makes this Container undisplayable by removing its connection to its native screen resource. Making a container undisplayable will cause all of its children to be made undisplayable. This method is called by the toolkit internally and should not be called directly by programs.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>See Also:</B><DD>Component#isDisplayable</DD>
+<DD>#addNotify</DD>
+</DL>
+<HR>
+
+<H3>isAncestorOf</H3>
+<PRE>
+public boolean <B>isAncestorOf</B>(Component&nbsp;c)</PRE>
+<DL><DD>Checks if the component is contained in the component hierarchy of this container.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>c</CODE> - the component</DD>
+<DT><B>Returns:</B><DD><code>true</code> if it is an ancestor; <code>false</code> otherwise.</DD>
+<DT><B>Since:</B><DD>JDK1.1</DD>
+</DL>
+<HR>
+
+<H3>paramString</H3>
+<PRE>
+protected String <B>paramString</B>()</PRE>
+<DL><DD>Returns a string representing the state of this <code>Container</code>. This method is intended to be used only for debugging purposes, and the content and format of the returned string may vary between implementations. The returned string may be empty but may not be <code>null</code>.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Returns:</B><DD>the parameter string of this container</DD>
+</DL>
+<HR>
+
+<H3>list</H3>
+<PRE>
+public void <B>list</B>(PrintStream&nbsp;out,
+                 int&nbsp;indent)</PRE>
+<DL><DD>Prints a listing of this container to the specified output stream. The listing starts at the specified indentation.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>out</CODE> - a print stream.</DD>
+<DD><CODE>indent</CODE> - the number of spaces to indent.</DD>
+<DT><B>Since:</B><DD>JDK1.0</DD>
+<DT><B>See Also:</B><DD>Component#list(java.io.PrintStream, int)</DD>
+</DL>
+<HR>
+
+<H3>list</H3>
+<PRE>
+public void <B>list</B>(PrintWriter&nbsp;out,
+                 int&nbsp;indent)</PRE>
+<DL><DD>Prints out a list, starting at the specified indention, to the specified print writer.<DL><DD></DD></DL></DD>
+</DL>
+<DL></DL>
+<HR>
+
+<H3>setFocusTraversalKeys</H3>
+<PRE>
+public void <B>setFocusTraversalKeys</B>(int&nbsp;id,
+                                  Set&nbsp;keystrokes)</PRE>
+<DL><DD>Sets the focus traversal keys for a given traversal operation for this Container. <p> The default values for a Container's focus traversal keys are implementation-dependent. Sun recommends that all implementations for a particular native platform use the same default values. The recommendations for Windows and Unix are listed below. These recommendations are used in the Sun AWT implementations. <table border=1 summary="Recommended default values for a Container's focus traversal keys"> <tr> <th>Identifier</th> <th>Meaning</th> <th>Default</th> </tr> <tr> <td>KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS</td> <td>Normal forward keyboard traversal</td> <td>TAB on KEY_PRESSED, CTRL-TAB on KEY_PRESSED</td> </tr> <tr> <td>KeyboardFocusManager.BACKWARD_TRAVERSAL_KEYS</td> <td>Normal reverse keyboard traversal</td> <td>SHIFT-TAB on KEY_PRESSED, CTRL-SHIFT-TAB on KEY_PRESSED</td> </tr> <tr> <td>KeyboardFocusManager.UP_CYCLE_TRAVERSAL_KEYS</td> <td>Go up one focus traversal cycle</td> <td>none</td> </tr> <tr> <td>KeyboardFocusManager.DOWN_CYCLE_TRAVERSAL_KEYS<td> <td>Go down one focus traversal cycle</td> <td>none</td> </tr> </table> To disable a traversal key, use an empty Set; Collections.EMPTY_SET is recommended. <p> Using the AWTKeyStroke API, client code can specify on which of two specific KeyEvents, KEY_PRESSED or KEY_RELEASED, the focus traversal operation will occur. Regardless of which KeyEvent is specified, however, all KeyEvents related to the focus traversal key, including the associated KEY_TYPED event, will be consumed, and will not be dispatched to any Container. It is a runtime error to specify a KEY_TYPED event as mapping to a focus traversal operation, or to map the same event to multiple default focus traversal operations. <p> If a value of null is specified for the Set, this Container inherits the Set from its parent. If all ancestors of this Container have null specified for the Set, then the current KeyboardFocusManager's default Set is used.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>id</CODE> - one of KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, KeyboardFocusManager.BACKWARD_TRAVERSAL_KEYS, KeyboardFocusManager.UP_CYCLE_TRAVERSAL_KEYS, or KeyboardFocusManager.DOWN_CYCLE_TRAVERSAL_KEYS</DD>
+<DD><CODE>keystrokes</CODE> - the Set of AWTKeyStroke for the specified operation</DD>
+<DT><B>Throws:</B><DD><CODE>IllegalArgumentException</CODE> - if id is not one of KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, KeyboardFocusManager.BACKWARD_TRAVERSAL_KEYS, KeyboardFocusManager.UP_CYCLE_TRAVERSAL_KEYS, or KeyboardFocusManager.DOWN_CYCLE_TRAVERSAL_KEYS, or if keystrokes contains null, or if any Object in keystrokes is not an AWTKeyStroke, or if any keystroke represents a KEY_TYPED event, or if any keystroke already maps to another focus traversal operation for this Container</DD>
+<DT><B>Since:</B><DD>1.4</DD>
+<DT><B>See Also:</B><DD>#getFocusTraversalKeys</DD>
+<DD>KeyboardFocusManager#FORWARD_TRAVERSAL_KEYS</DD>
+<DD>KeyboardFocusManager#BACKWARD_TRAVERSAL_KEYS</DD>
+<DD>KeyboardFocusManager#UP_CYCLE_TRAVERSAL_KEYS</DD>
+<DD>KeyboardFocusManager#DOWN_CYCLE_TRAVERSAL_KEYS</DD>
+</DL>
+<HR>
+
+<H3>getFocusTraversalKeys</H3>
+<PRE>
+public Set <B>getFocusTraversalKeys</B>(int&nbsp;id)</PRE>
+<DL><DD>Returns the Set of focus traversal keys for a given traversal operation for this Container. (See <code>setFocusTraversalKeys</code> for a full description of each key.) <p> If a Set of traversal keys has not been explicitly defined for this Container, then this Container's parent's Set is returned. If no Set has been explicitly defined for any of this Container's ancestors, then the current KeyboardFocusManager's default Set is returned.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>id</CODE> - one of KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, KeyboardFocusManager.BACKWARD_TRAVERSAL_KEYS, KeyboardFocusManager.UP_CYCLE_TRAVERSAL_KEYS, or KeyboardFocusManager.DOWN_CYCLE_TRAVERSAL_KEYS</DD>
+<DT><B>Returns:</B><DD>the Set of AWTKeyStrokes for the specified operation. The Set will be unmodifiable, and may be empty. null will never be returned.</DD>
+<DT><B>Throws:</B><DD><CODE>IllegalArgumentException</CODE> - if id is not one of KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, KeyboardFocusManager.BACKWARD_TRAVERSAL_KEYS, KeyboardFocusManager.UP_CYCLE_TRAVERSAL_KEYS, or KeyboardFocusManager.DOWN_CYCLE_TRAVERSAL_KEYS</DD>
+<DT><B>Since:</B><DD>1.4</DD>
+<DT><B>See Also:</B><DD>#setFocusTraversalKeys</DD>
+<DD>KeyboardFocusManager#FORWARD_TRAVERSAL_KEYS</DD>
+<DD>KeyboardFocusManager#BACKWARD_TRAVERSAL_KEYS</DD>
+<DD>KeyboardFocusManager#UP_CYCLE_TRAVERSAL_KEYS</DD>
+<DD>KeyboardFocusManager#DOWN_CYCLE_TRAVERSAL_KEYS</DD>
+</DL>
+<HR>
+
+<H3>areFocusTraversalKeysSet</H3>
+<PRE>
+public boolean <B>areFocusTraversalKeysSet</B>(int&nbsp;id)</PRE>
+<DL><DD>Returns whether the Set of focus traversal keys for the given focus traversal operation has been explicitly defined for this Container. If this method returns <code>false</code>, this Container is inheriting the Set from an ancestor, or from the current KeyboardFocusManager.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>id</CODE> - one of KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, KeyboardFocusManager.BACKWARD_TRAVERSAL_KEYS, KeyboardFocusManager.UP_CYCLE_TRAVERSAL_KEYS, or KeyboardFocusManager.DOWN_CYCLE_TRAVERSAL_KEYS</DD>
+<DT><B>Returns:</B><DD><code>true</code> if the the Set of focus traversal keys for the given focus traversal operation has been explicitly defined for this Component; <code>false</code> otherwise.</DD>
+<DT><B>Throws:</B><DD><CODE>IllegalArgumentException</CODE> - if id is not one of KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, KeyboardFocusManager.BACKWARD_TRAVERSAL_KEYS, KeyboardFocusManager.UP_CYCLE_TRAVERSAL_KEYS, or KeyboardFocusManager.DOWN_CYCLE_TRAVERSAL_KEYS</DD>
+<DT><B>Since:</B><DD>1.4</DD>
+</DL>
+<HR>
+
+<H3>isFocusCycleRoot</H3>
+<PRE>
+public boolean <B>isFocusCycleRoot</B>(Container&nbsp;container)</PRE>
+<DL><DD>Returns whether the specified Container is the focus cycle root of this Container's focus traversal cycle. Each focus traversal cycle has only a single focus cycle root and each Container which is not a focus cycle root belongs to only a single focus traversal cycle. Containers which are focus cycle roots belong to two cycles: one rooted at the Container itself, and one rooted at the Container's nearest focus-cycle-root ancestor. This method will return <code>true</code> for both such Containers in this case.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>container</CODE> - the Container to be tested</DD>
+<DT><B>Returns:</B><DD><code>true</code> if the specified Container is a focus-cycle- root of this Container; <code>false</code> otherwise</DD>
+<DT><B>Since:</B><DD>1.4</DD>
+<DT><B>See Also:</B><DD>#isFocusCycleRoot()</DD>
+</DL>
+<HR>
+
+<H3>isParentOf</H3>
+<PRE>
+boolean <B>isParentOf</B>(Component&nbsp;comp)</PRE>
+<DL><DD>Check if this component is the child of this container or its children. Note: this function acquires treeLock Note: this function traverses children tree only in one Window.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>comp</CODE> - a component in test, must not be null</DD>
+</DL>
+<HR>
+
+<H3>setFocusTraversalPolicy</H3>
+<PRE>
+public void <B>setFocusTraversalPolicy</B>(FocusTraversalPolicy&nbsp;policy)</PRE>
+<DL><DD>Sets the focus traversal policy that will manage keyboard traversal of this Container's children, if this Container is a focus cycle root. If the argument is null, this Container inherits its policy from its focus- cycle-root ancestor. If the argument is non-null, this policy will be inherited by all focus-cycle-root children that have no keyboard- traversal policy of their own (as will, recursively, their focus-cycle- root children). <p> If this Container is not a focus cycle root, the policy will be remembered, but will not be used or inherited by this or any other Containers until this Container is made a focus cycle root.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>policy</CODE> - the new focus traversal policy for this Container</DD>
+<DT><B>Since:</B><DD>1.4</DD>
+<DT><B>See Also:</B><DD>#getFocusTraversalPolicy</DD>
+<DD>#setFocusCycleRoot</DD>
+<DD>#isFocusCycleRoot</DD>
+</DL>
+<HR>
+
+<H3>getFocusTraversalPolicy</H3>
+<PRE>
+public FocusTraversalPolicy <B>getFocusTraversalPolicy</B>()</PRE>
+<DL><DD>Returns the focus traversal policy that will manage keyboard traversal of this Container's children, or null if this Container is not a focus cycle root. If no traversal policy has been explicitly set for this Container, then this Container's focus-cycle-root ancestor's policy is returned.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Returns:</B><DD>this Container's focus traversal policy, or null if this Container is not a focus cycle root.</DD>
+<DT><B>Since:</B><DD>1.4</DD>
+<DT><B>See Also:</B><DD>#setFocusTraversalPolicy</DD>
+<DD>#setFocusCycleRoot</DD>
+<DD>#isFocusCycleRoot</DD>
+</DL>
+<HR>
+
+<H3>isFocusTraversalPolicySet</H3>
+<PRE>
+public boolean <B>isFocusTraversalPolicySet</B>()</PRE>
+<DL><DD>Returns whether the focus traversal policy has been explicitly set for this Container. If this method returns <code>false</code>, this Container will inherit its focus traversal policy from an ancestor.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Returns:</B><DD><code>true</code> if the focus traversal policy has been explicitly set for this Container; <code>false</code> otherwise.</DD>
+<DT><B>Since:</B><DD>1.4</DD>
+</DL>
+<HR>
+
+<H3>setFocusCycleRoot</H3>
+<PRE>
+public void <B>setFocusCycleRoot</B>(boolean&nbsp;focusCycleRoot)</PRE>
+<DL><DD>Sets whether this Container is the root of a focus traversal cycle. Once focus enters a traversal cycle, typically it cannot leave it via focus traversal unless one of the up- or down-cycle keys is pressed. Normal traversal is limited to this Container, and all of this Container's descendants that are not descendants of inferior focus cycle roots. Note that a FocusTraversalPolicy may bend these restrictions, however. For example, ContainerOrderFocusTraversalPolicy supports implicit down-cycle traversal.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>focusCycleRoot</CODE> - indicates whether this Container is the root of a focus traversal cycle</DD>
+<DT><B>Since:</B><DD>1.4</DD>
+<DT><B>See Also:</B><DD>#isFocusCycleRoot()</DD>
+<DD>#setFocusTraversalPolicy</DD>
+<DD>#getFocusTraversalPolicy</DD>
+<DD>ContainerOrderFocusTraversalPolicy</DD>
+</DL>
+<HR>
+
+<H3>isFocusCycleRoot</H3>
+<PRE>
+public boolean <B>isFocusCycleRoot</B>()</PRE>
+<DL><DD>Returns whether this Container is the root of a focus traversal cycle. Once focus enters a traversal cycle, typically it cannot leave it via focus traversal unless one of the up- or down-cycle keys is pressed. Normal traversal is limited to this Container, and all of this Container's descendants that are not descendants of inferior focus cycle roots. Note that a FocusTraversalPolicy may bend these restrictions, however. For example, ContainerOrderFocusTraversalPolicy supports implicit down-cycle traversal.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Returns:</B><DD>whether this Container is the root of a focus traversal cycle</DD>
+<DT><B>Since:</B><DD>1.4</DD>
+<DT><B>See Also:</B><DD>#setFocusCycleRoot</DD>
+<DD>#setFocusTraversalPolicy</DD>
+<DD>#getFocusTraversalPolicy</DD>
+<DD>ContainerOrderFocusTraversalPolicy</DD>
+</DL>
+<HR>
+
+<H3>transferFocusDownCycle</H3>
+<PRE>
+public void <B>transferFocusDownCycle</B>()</PRE>
+<DL><DD>Transfers the focus down one focus traversal cycle. If this Container is a focus cycle root, then the focus owner is set to this Container's default Component to focus, and the current focus cycle root is set to this Container. If this Container is not a focus cycle root, then no focus traversal operation occurs.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Since:</B><DD>1.4</DD>
+<DT><B>See Also:</B><DD>Component#requestFocus()</DD>
+<DD>#isFocusCycleRoot</DD>
+<DD>#setFocusCycleRoot</DD>
+</DL>
+<HR>
+
+<H3>applyComponentOrientation</H3>
+<PRE>
+public void <B>applyComponentOrientation</B>(ComponentOrientation&nbsp;o)</PRE>
+<DL><DD>Sets the <code>ComponentOrientation</code> property of this container and all components contained within it.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>o</CODE> - the new component orientation of this container and the components contained within it.</DD>
+<DT><B>Throws:</B><DD><CODE>NullPointerException</CODE> - if <code>orientation</code> is null.</DD>
+<DT><B>Since:</B><DD>1.4</DD>
+<DT><B>See Also:</B><DD>Component#setComponentOrientation</DD>
+<DD>Component#getComponentOrientation</DD>
+</DL>
+<HR>
+
+<H3>addPropertyChangeListener</H3>
+<PRE>
+public void <B>addPropertyChangeListener</B>(PropertyChangeListener&nbsp;listener)</PRE>
+<DL><DD>Adds a PropertyChangeListener to the listener list. The listener is registered for all bound properties of this class, including the following: <ul> <li>this Container's font ("font")</li> <li>this Container's background color ("background")</li> <li>this Container's foreground color ("foreground")</li> <li>this Container's focusability ("focusable")</li> <li>this Container's focus traversal keys enabled state ("focusTraversalKeysEnabled")</li> <li>this Container's Set of FORWARD_TRAVERSAL_KEYS ("forwardFocusTraversalKeys")</li> <li>this Container's Set of BACKWARD_TRAVERSAL_KEYS ("backwardFocusTraversalKeys")</li> <li>this Container's Set of UP_CYCLE_TRAVERSAL_KEYS ("upCycleFocusTraversalKeys")</li> <li>this Container's Set of DOWN_CYCLE_TRAVERSAL_KEYS ("downCycleFocusTraversalKeys")</li> <li>this Container's focus traversal policy ("focusTraversalPolicy") </li> <li>this Container's focus-cycle-root state ("focusCycleRoot")</li> </ul> Note that if this Container is inheriting a bound property, then no event will be fired in response to a change in the inherited property. <p> If listener is null, no exception is thrown and no action is performed.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>listener</CODE> - the PropertyChangeListener to be added</DD>
+<DT><B>See Also:</B><DD>Component#removePropertyChangeListener</DD>
+<DD>#addPropertyChangeListener(java.lang.String,java.beans.PropertyChangeListener)</DD>
+</DL>
+<HR>
+
+<H3>addPropertyChangeListener</H3>
+<PRE>
+public void <B>addPropertyChangeListener</B>(String&nbsp;propertyName,
+                                      PropertyChangeListener&nbsp;listener)</PRE>
+<DL><DD>Adds a PropertyChangeListener to the listener list for a specific property. The specified property may be user-defined, or one of the following defaults: <ul> <li>this Container's font ("font")</li> <li>this Container's background color ("background")</li> <li>this Container's foreground color ("foreground")</li> <li>this Container's focusability ("focusable")</li> <li>this Container's focus traversal keys enabled state ("focusTraversalKeysEnabled")</li> <li>this Container's Set of FORWARD_TRAVERSAL_KEYS ("forwardFocusTraversalKeys")</li> <li>this Container's Set of BACKWARD_TRAVERSAL_KEYS ("backwardFocusTraversalKeys")</li> <li>this Container's Set of UP_CYCLE_TRAVERSAL_KEYS ("upCycleFocusTraversalKeys")</li> <li>this Container's Set of DOWN_CYCLE_TRAVERSAL_KEYS ("downCycleFocusTraversalKeys")</li> <li>this Container's focus traversal policy ("focusTraversalPolicy") </li> <li>this Container's focus-cycle-root state ("focusCycleRoot")</li> </ul> Note that if this Container is inheriting a bound property, then no event will be fired in response to a change in the inherited property. <p> If listener is null, no exception is thrown and no action is performed.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>propertyName</CODE> - one of the property names listed above</DD>
+<DD><CODE>listener</CODE> - the PropertyChangeListener to be added</DD>
+<DT><B>See Also:</B><DD>#addPropertyChangeListener(java.beans.PropertyChangeListener)</DD>
+<DD>Component#removePropertyChangeListener</DD>
+</DL>
+<HR>
+
+<H3>writeObject</H3>
+<PRE>
+private void <B>writeObject</B>(ObjectOutputStream&nbsp;s)</PRE>
+<DL><DD>Serializes this <code>Container</code> to the specified <code>ObjectOutputStream</code>. <ul> <li>Writes default serializable fields to the stream.</li> <li>Writes a list of serializable ContainerListener(s) as optional data. The non-serializable ContainerListner(s) are detected and no attempt is made to serialize them.</li> <li>Write this Container's FocusTraversalPolicy if and only if it is Serializable; otherwise, <code>null</code> is written.</li> </ul><DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>s</CODE> - the <code>ObjectOutputStream</code> to write</DD>
+<DT><B>See Also:</B><DD>AWTEventMulticaster#save(java.io.ObjectOutputStream, java.lang.String, java.util.EventListener)</DD>
+<DD>Container#containerListenerK</DD>
+<DD>#readObject(ObjectInputStream)</DD>
+</DL>
+<HR>
+
+<H3>readObject</H3>
+<PRE>
+private void <B>readObject</B>(ObjectInputStream&nbsp;s)</PRE>
+<DL><DD>Deserializes this <code>Container</code> from the specified <code>ObjectInputStream</code>. <ul> <li>Reads default serializable fields from the stream.</li> <li>Reads a list of serializable ContainerListener(s) as optional data. If the list is null, no Listeners are installed.</li> <li>Reads this Container's FocusTraversalPolicy, which may be null, as optional data.</li> </ul><DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>s</CODE> - the <code>ObjectInputStream</code> to read</DD>
+<DT><B>See Also:</B><DD>#addContainerListener</DD>
+<DD>#writeObject(ObjectOutputStream)</DD>
+</DL>
+<HR>
+
+<H3>getAccessibleAt</H3>
+<PRE>
+Accessible <B>getAccessibleAt</B>(Point&nbsp;p)</PRE>
+<DL><DD>Returns the <code>Accessible</code> child contained at the local coordinate <code>Point</code>, if one exists. Otherwise returns <code>null</code>.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>p</CODE> - the point defining the top-left corner of the <code>Accessible</code>, given in the coordinate space of the object's parent</DD>
+<DT><B>Returns:</B><DD>the <code>Accessible</code> at the specified location, if it exists; otherwise <code>null</code></DD>
+</DL>
+<HR>
+
+<H3>getAccessibleChildrenCount</H3>
+<PRE>
+int <B>getAccessibleChildrenCount</B>()</PRE>
+<DL><DD>Returns the number of accessible children in the object. If all of the children of this object implement <code>Accessible</code>, then this method should return the number of children of this object.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Returns:</B><DD>the number of accessible children in the object</DD>
+</DL>
+<HR>
+
+<H3>getAccessibleChild</H3>
+<PRE>
+Accessible <B>getAccessibleChild</B>(int&nbsp;i)</PRE>
+<DL><DD>Returns the nth <code>Accessible</code> child of the object.<DL><DD></DD></DL></DD>
+</DL>
+<DL><DT><B>Parameters:</B><DD><CODE>i</CODE> - zero-based index of child</DD>
+<DT><B>Returns:</B><DD>the nth <code>Accessible</code> child of the object</DD>
+</DL>
+<HR>
+
+</BODY>
+</HTML>
